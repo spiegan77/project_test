@@ -1,3 +1,9 @@
+TODO:
+START AT SWITCH STATMENTS VIDEO
+Add BOUNDARIES from the Laser Defender section
+Add CINEMACHINE with edges from the Platformer section
+Have Collisions trigger Gravity Off/On (Maybe from the Obstacle Course?)
+
 Sources Used:
 
 https://www.youtube.com/watch?v=uAOn0X6oWmU
@@ -8,13 +14,20 @@ Laser Defender:
   Project Setup - Player Input Package - Bailed on this for now
     Also will be good for getting Assets from Kenney
   Unity Input System
-  Boundaries - NOT IMPLEMENTED YET
+  BOUNDARIES - NOT IMPLEMENTED YET
 
 Project Boost:
   Basic Input Binding
+  Rigidbody Constraints - Plays around with gravity and discusses how to simulate wind, but I'm not sure it's what I want
 
-
-
-Milestones:
-Get Square to move
-
+https://csharp.hotexamples.com/examples/UnityEngine/Rigidbody2D/AddRelativeForce/php-rigidbody2d-addrelativeforce-method-examples.html
+ // Use this for initialization
+ void Start()
+ {
+     r2d = GetComponent<Rigidbody2D> ();
+     if(Movimentacao.left){
+         r2d.AddRelativeForce (new Vector2 (-speed, 0));
+     }else{
+         r2d.AddRelativeForce (new Vector2 (speed, 0));
+     }
+ }
