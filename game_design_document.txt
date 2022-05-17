@@ -1,7 +1,20 @@
 Sources Used:
-Laser Defender Project Setup - Player Input Package
-  Also will be good for getting Assets from Kenney
+
+https://www.youtube.com/watch?v=uAOn0X6oWmU
+  @ 4:00 he mentions using a character controller
+  --Check Brackeys
+
+Laser Defender:
+  Project Setup - Player Input Package - Bailed on this for now
+    Also will be good for getting Assets from Kenney
+  Unity Input System
+  Boundaries - NOT IMPLEMENTED YET
+
+Project Boost:
+  Basic Input Binding
+
 
 
 Milestones:
 Get Square to move
+
