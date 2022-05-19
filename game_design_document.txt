@@ -1,9 +1,13 @@
 TODO:
-START AT LOAD NEXT LEVEL VIDEO
+START AT USING INVOKE
 Add BOUNDARIES from the Laser Defender section
 Add CINEMACHINE with edges from the Platformer section
 Have Collisions trigger Gravity Off/On (Maybe from the Obstacle Course?)
   Maybe use Switch Statemenmts to create an invisible “Gate” that could trigger switching Physics On/Off
+Instead of looping to first level - have an End Screen
+
+Audio:
+Video 41 - Should just be able to swap the audio clip being used by Audio Source on the PlayerShip
 
 Sources Used:
 

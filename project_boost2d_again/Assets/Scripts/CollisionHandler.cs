@@ -15,6 +15,7 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Finish":
                 Debug.Log("I'm finish. like the crackers");
+                LoadNextLevel();
                 break;
             default:
                 Debug.Log("You sploded");
@@ -22,6 +23,17 @@ public class CollisionHandler : MonoBehaviour
                 break;
 
         }
+    }
+
+    void LoadNextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     private static void ReloadScene()
