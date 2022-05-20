@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float rotationThrust = 1f;
+    [SerializeField] AudioClip mainEngine;
+
     Rigidbody2D rb;
     AudioSource audioSource;
 
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour
             rb.AddRelativeForce(Vector2.up * mainThrust * Time.deltaTime); // rb.AddRelativeForce(new Vector2(0,1))
             if (!audioSource.isPlaying)
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
             }
         }
         else

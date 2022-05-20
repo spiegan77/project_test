@@ -3,8 +3,23 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField] float LoadLevelDelay = 2f;
+    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip crash;
+
+    AudioSource audioSource;
+
+    bool isTransitioning = false;
+
+    private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isTransitioning){return;}
+
         switch (collision.gameObject.tag)
         {
             case "Friendly":
@@ -15,14 +30,30 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Finish":
                 Debug.Log("I'm finish. like the crackers");
-                LoadNextLevel();
+                StartSuccessSequence();
                 break;
             default:
-                Debug.Log("You sploded");
-                ReloadScene();
+                StartCrashSequence();
                 break;
-
         }
+    }
+
+    void StartSuccessSequence()
+    {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
+        GetComponent<Player>().enabled = false;
+        Invoke("LoadNextLevel", LoadLevelDelay);
+    }
+
+    void StartCrashSequence()
+    {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(crash);
+        GetComponent<Player>().enabled = false;
+        Invoke("ReloadScene", LoadLevelDelay);
     }
 
     void LoadNextLevel()
@@ -36,7 +67,7 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(nextSceneIndex);
     }
 
-    private static void ReloadScene()
+    void ReloadScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);

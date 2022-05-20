@@ -1,5 +1,5 @@
 TODO:
-START AT USING INVOKE
+START AT HOW TO TRIGGER PARTICLES
 Add BOUNDARIES from the Laser Defender section
 Add CINEMACHINE with edges from the Platformer section
 Have Collisions trigger Gravity Off/On (Maybe from the Obstacle Course?)
